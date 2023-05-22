@@ -81,11 +81,7 @@ int main(void) {
 
     printf("size tab: %d, n: %d\n", size_tab, n);
     struct liczba TAB[size_tab / sizeof(struct liczba)];
-
-    for (int i = 0; i < size_tab / sizeof(struct liczba); i++) {
-        fread(TAB + i, sizeof(struct liczba), 1, fb);
-    }
-
+    fread(TAB, sizeof(struct liczba), size_tab/sizeof(struct liczba), fb);
     fclose(fb);
 
     struct_prn(TAB, n);
